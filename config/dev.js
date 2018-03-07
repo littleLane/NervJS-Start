@@ -1,3 +1,5 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
   // environment variables
   env: {
@@ -11,5 +13,13 @@ module.exports = {
   // dev server host
   host: '0.0.0.0',
   // dev server protocol, support https
-  protocol: 'http'
+  protocol: 'http',
+  webpack: {
+    plugins: [
+      // config favicon.ico
+      new CopyWebpackPlugin([
+        { from: 'src/favicon.ico', to: 'favicon.ico' }
+      ])
+    ]
+  }
 }
